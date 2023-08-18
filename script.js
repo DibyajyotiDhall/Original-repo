@@ -1,9 +1,34 @@
-const colorButton = document.getElementById('colorButton');
-const body = document.body;
-const colors = ['#ff6347', '#42f55d', '#3498db', '#f39c12', '#8e44ad'];
+t users = [
+  { username: 'user1', password: 'password1' },
+  { username: 'user2', password: 'password2' },
+  // Add more users as needed
+];
 
-colorButton.addEventListener('click', () => {
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  const randomColor = colors[randomIndex];
-  body.style.backgroundColor = randomColor;
-});
+// Function to check if a user exists in the database
+function findUser(username, password) {
+  return users.find(user => user.username === username && user.password === password);
+}
+
+// Function to handle the login process
+function login(username, password) {
+  const user = findUser(username, password);
+  if (user) {
+    return { success: true, message: 'Login successful', user: user.username };
+  } else {
+    return { success: false, message: 'Invalid credentials' };
+  }
+}
+
+// Example usage
+const username = 'user1';
+const password = 'password1';
+
+const loginResult = login(username, password);
+
+if (loginResult.success) {
+  console.log(loginResult.message);
+  console.log(`Welcome, ${loginResult.user}!`);
+} else {
+  console.log(loginResult.message);
+}
+
