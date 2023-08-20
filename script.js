@@ -13,7 +13,7 @@ function findUser(username, password) {
 function login(username, password) {
   const user = findUser(username, password);
   if (user) {
-    return { success: true, message: 'Login successful', user: user.username };
+    return { success: true, message: 'Login success', user: user.username };
   } else {
     return { success: false, message: 'Invalid credentials' };
   }
