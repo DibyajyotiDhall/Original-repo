@@ -27,7 +27,7 @@ const loginResult = login(username, password);
 
 if (loginResult.success) {
   console.log(loginResult.message);
-  console.log(`Welcome, ${loginResult.user}!`);
+  console.log(`Weome, ${loginResult.user}!`);
 } else {
   console.log(loginResult.message);
 }
